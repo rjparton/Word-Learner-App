@@ -2,6 +2,12 @@ import ps from 'prompt-sync';
 import fs from 'fs';
 const databaseFile = 'data.json';
 
+////////////////////////////////
+///////// CONSTANTS ////////////
+////////////////////////////////
+
+const testLength = 3;
+
 ///////////////////////////
 ///////// MAIN ////////////
 ///////////////////////////
@@ -16,6 +22,7 @@ while (command !== -1) {
     console.log('   1. Add a new word.');
     console.log('   2. Test yourself.');
     console.log('   3. Get total number of words.');
+    console.log('   4. Get test stats.');
     console.log('   -1. Exit program.');
     console.log();
     
@@ -28,6 +35,8 @@ while (command !== -1) {
         testYourself();
     } else if (command === 3) {
         getTotalWords();
+    } else if (command === 4) {
+        getTestStats();
     } else if (command === -1) {
         console.log('Exiting the program. Goodbye!');
     } else {
@@ -35,11 +44,18 @@ while (command !== -1) {
     }
 
     console.log();
+
+    setData(data);
 }
 
 ////////////////////////////////
 ///////// FUNCTIONS ////////////
 ////////////////////////////////
+
+function getTestStats() {
+    let lastTest = data.testScores[data.testScores.length - 1];
+    console.log(`Last test score: ${lastTest.score}/${testLength}.`);
+}
 
 function getTotalWords() {
     console.log(`Total number of words is: ${data.words.length}`);
@@ -47,19 +63,19 @@ function getTotalWords() {
 
 function testYourself() {
     let score = 0;
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < testLength; i++) {
         let rand = generateRandom();
         let word = data.words[rand];
         
         let array = [];
         array.push(word);
 
-        while (array.length !== 5) {
+        while (array.length !== 3) {
             rand = generateRandom();
             let newWord = data.words[rand];
 
             // Ensure no duplicate definitions
-            const exists = array.find((wordObject) => wordObject.word === word);
+            const exists = array.find((wordObject) => wordObject.word === newword.word);
             if (typeof(exists) === 'undefined') {
                 array.push(newWord);
             }
@@ -78,11 +94,17 @@ function testYourself() {
         
         if (word.definition === array[answer-1].definition) {
             score++;
-            console.log(`Correct answer! Total score: ${score}`)
+            console.log(`Correct answer! Total score: ${score}/${testLength}\n`)
         } else {
-            console.log(`Wrong answer :( Total score: ${score}`)
+            console.log(`Wrong answer :( Total score: ${score}/${testLength}\n`)
         }
     }
+
+    // Record your test score in testScores
+    let result = {};
+    result.timestamp = new Date();
+    result.score = score;
+    data.testScores.push(result);
 
 }
 
@@ -117,12 +139,12 @@ function generateRandom() {
 function addWord() {
     let newWord = {};
     
-    let word = prompt('Enter the word: ')
+    let word = prompt('Enter the new word: ')
     word = word.toLocaleLowerCase();
 
     // Check if the word already exists
     if (checkWordExists(word)) {
-        console.log('Word already exists.');
+        console.log('\n [ERROR] Word already exists!');
         return 1;
     }
 
@@ -138,11 +160,11 @@ function addWord() {
 
     newWord.numCorrect = 0;
     newWord.numWrong = 0;
+    newWord.timestampAdded = new Date();
     
     data.words.push(newWord);
-    setData(data);
 
-    console.log(`\nAdded "${word}" to the database. Nice one!\n`)
+    console.log(`\nAdded "${word}" to the database. Nice one!`)
     return 0;
 }
 
@@ -167,3 +189,5 @@ function setData(newData) {
     let tempDatabase = newData;
     fs.writeFileSync(databaseFile, JSON.stringify(tempDatabase, null, 4));
 }
+
+export {getData}

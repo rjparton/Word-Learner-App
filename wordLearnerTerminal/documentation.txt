@@ -1,0 +1,4 @@
+word results array:
+- Contains 1s and 0s. 
+- Each 1 represents a time the word was guessed correctly in a quiz
+

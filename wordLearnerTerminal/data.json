@@ -1,53 +1,77 @@
 {
+    "testScores": [
+        {
+            "timestamp": "2022-08-23T11:20:26.473Z",
+            "score": 3
+        },
+        {
+            "timestamp": "2022-08-23T11:27:53.213Z",
+            "score": 3
+        }
+    ],
     "words": [
         {
             "word": "inscrutable",
             "definition": "impossible to understand or interpret",
             "type": "adjective",
-            "numCorrect": 0,
-            "numWrong": 0
+            "results": [],
+            "timestampAdded": "2022-08-23T11:11:12.931Z"
         },
         {
             "word": "litigious",
             "definition": "tending or too ready to take legal action to settle disputes.",
             "type": "adjective",
-            "numCorrect": 0,
-            "numWrong": 0
+            "results": [],
+            "timestampAdded": "2022-08-23T11:11:12.931Z"
         },
         {
             "word": "soliloquy",
             "definition": "an act of speaking one's thoughts aloud when by oneself or regardless of any hearers, especially by a character in a play.",
             "type": "noun",
-            "numCorrect": 0,
-            "numWrong": 0
+            "results": [],
+            "timestampAdded": "2022-08-23T11:11:12.931Z"
         },
         {
             "word": "banal",
             "definition": "so lacking in originality as to be obvious and boring.",
             "type": "adjective",
-            "numCorrect": 0,
-            "numWrong": 0
+            "results": [],
+            "timestampAdded": "2022-08-23T11:11:12.931Z"
         },
         {
             "word": "discombobulate",
             "definition": "disconcert or confuse (someone).",
             "type": "verb",
-            "numCorrect": 0,
-            "numWrong": 0
+            "results": [],
+            "timestampAdded": "2022-08-23T11:11:12.931Z"
         },
         {
             "word": "salient",
             "definition": "most noticeable or important.",
             "type": "adjective",
-            "numCorrect": 0,
-            "numWrong": 0
+            "results": [],
+            "timestampAdded": "2022-08-23T11:11:12.931Z"
         },
         {
             "word": "genial",
             "definition": "friendly and cheerful.",
             "type": "adjective",
-            "numCorrect": 0,
-            "numWrong": 0
+            "results": [],
+            "timestampAdded": "2022-08-23T11:11:12.931Z"
+        },
+        {
+            "word": "fidelity",
+            "definition": "faithfulness to a person, cause, or belief, demonstrated by continuing loyalty and support.",
+            "type": "noun",
+            "results": [],
+            "timestampAdded": "2022-08-23T11:11:12.931Z"
+        },
+        {
+            "word": "subterfuge",
+            "definition": "deceit used in order to achieve one's goal.",
+            "type": "noun",
+            "results": [],
+            "timestampAdded": "2022-08-23T11:11:12.931Z"
         }
     ]
 }
