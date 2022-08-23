@@ -1,0 +1,39 @@
+{
+    "words": [
+        {
+            "word": "inscrutable",
+            "definition": "impossible to understand or interpret",
+            "type": "adjective",
+            "numCorrect": 0,
+            "numWrong": 0
+        },
+        {
+            "word": "litigious",
+            "definition": "tending or too ready to take legal action to settle disputes.",
+            "type": "adjective",
+            "numCorrect": 0,
+            "numWrong": 0
+        },
+        {
+            "word": "soliloquy",
+            "definition": "an act of speaking one's thoughts aloud when by oneself or regardless of any hearers, especially by a character in a play.",
+            "type": "noun",
+            "numCorrect": 0,
+            "numWrong": 0
+        },
+        {
+            "word": "banal",
+            "definition": "so lacking in originality as to be obvious and boring.",
+            "type": "adjective",
+            "numCorrect": 0,
+            "numWrong": 0
+        },
+        {
+            "word": "discombobulate",
+            "definition": "disconcert or confuse (someone).",
+            "type": "verb",
+            "numCorrect": 0,
+            "numWrong": 0
+        }
+    ]
+}
