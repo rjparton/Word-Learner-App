@@ -17,8 +17,10 @@ while (command !== -1) {
     console.log('   2. Test yourself.');
     console.log('   3. Get total number of words.');
     console.log('   -1. Exit program.');
+    console.log();
     
     command = parseInt(prompt('Enter number: '));
+    console.log();
 
     if (command === 1) {
         addWord();
@@ -32,6 +34,7 @@ while (command !== -1) {
         console.log('Invalid input.')
     }
 
+    console.log();
 }
 
 ////////////////////////////////
@@ -46,38 +49,39 @@ function testYourself() {
     let score = 0;
     for (let i = 0; i < 3; i++) {
         let rand = generateRandom();
-        let rand1 = generateRandom();
-        let rand2 = generateRandom();
-        let rand3 = generateRandom();
-        let rand4 = generateRandom();
-
         let word = data.words[rand];
         
         let array = [];
-        array.push(word.definition);
-        array.push(data.words[rand1].definition);
-        array.push(data.words[rand2].definition);
-        array.push(data.words[rand3].definition);
-        array.push(data.words[rand4].definition);
+        array.push(word);
+
+        while (array.length !== 5) {
+            rand = generateRandom();
+            let newWord = data.words[rand];
+
+            // Ensure no duplicate definitions
+            const exists = array.find((wordObject) => wordObject.word === word);
+            if (typeof(exists) === 'undefined') {
+                array.push(newWord);
+            }
+        }
+
         shuffle(array);
 
         console.log(`The word is "${word.word}". Pick the definition:`);
         let j = 1;
-        for (const definition of array) {
-            console.log(`    ${i}. ${definition}`)
+        for (const word of array) {
+            console.log(`    ${j}. ${word.definition}`)
             j++;
         }
 
         let answer = parseInt(prompt('\nChoose the definition (number): '));
         
-        if (word.definition === array[answer-1]) {
+        if (word.definition === array[answer-1].definition) {
             score++;
-            console.log(`Correct answer! Total score is: ${score}`)
+            console.log(`Correct answer! Total score: ${score}`)
         } else {
-            console.log(`Wrong answer :( Total score is: ${score}`)
+            console.log(`Wrong answer :( Total score: ${score}`)
         }
-
-        console.log();
     }
 
 }
@@ -138,6 +142,7 @@ function addWord() {
     data.words.push(newWord);
     setData(data);
 
+    console.log(`\nAdded "${word}" to the database. Nice one!\n`)
     return 0;
 }
 
