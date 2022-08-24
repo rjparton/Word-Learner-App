@@ -7,6 +7,22 @@
         {
             "timestamp": "2022-08-23T11:27:53.213Z",
             "score": 3
+        },
+        {
+            "timestamp": "2022-08-23T11:20:26.473Z",
+            "score": 3
+        },
+        {
+            "timestamp": "2022-08-23T11:27:53.213Z",
+            "score": 3
+        },
+        {
+            "timestamp": "2022-08-23T11:20:26.473Z",
+            "score": 3
+        },
+        {
+            "timestamp": "2022-08-23T11:27:53.213Z",
+            "score": 3
         }
     ],
     "words": [
@@ -72,6 +88,14 @@
             "type": "noun",
             "results": [],
             "timestampAdded": "2022-08-23T11:11:12.931Z"
+        },
+        {
+            "word": "impunity",
+            "definition": "exemption from punishment or freedom from the injurious consequences of an action.",
+            "type": "noun",
+            "numCorrect": 0,
+            "numWrong": 0,
+            "timestampAdded": "2022-08-23T11:59:45.467Z"
         }
     ]
 }

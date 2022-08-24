@@ -53,12 +53,41 @@ while (command !== -1) {
 ////////////////////////////////
 
 function getTestStats() {
-    let lastTest = data.testScores[data.testScores.length - 1];
-    console.log(`Last test score: ${lastTest.score}/${testLength}.`);
+
+    if (data.testScores.length < 5) {
+        console.log(`Total Tests Completed: ${data.testScores.length}`)
+        console.log(`Avg Score: ${totalScore/data.testScores.length}`)
+        return 0;
+    }
+
+    let totalScore = 0
+    for (let i = 0; i < data.testScores.length; i++) {
+        totalScore += data.testScores[i].score;
+    }
+    console.log(`Total Tests Completed: ${data.testScores.length}`)
+    console.log(`Overall Average Score: ${totalScore/data.testScores.length}`)
+
+    console.log('Last 5 Test Scores: ')
+    let l5Tests = data.testScores.slice(data.testScores.length - 5);
+    let l5Avg = 0;
+    for (let i = 4; i >= 0; i--) {
+        console.log(`    ${l5Tests[i].timestamp.slice(0,10)}: ${l5Tests[i].score}/${testLength}.`);
+        l5Avg += l5Tests[i].score;
+    }
+    // l5Avg = l5Avg/5;
+    console.log(`Last 5 Tests Average: ${l5Avg/5}/3`)
+
 }
 
 function getTotalWords() {
+    const nouns = data.words.filter(word => word.type === 'noun');
+    const verbs = data.words.filter(word => word.type === 'verb');
+    const adjectives = data.words.filter(word => word.type === 'adjective');
     console.log(`Total number of words is: ${data.words.length}`);
+    console.log(`    Nouns: ${nouns.length}`);
+    console.log(`    Verbs: ${verbs.length}`);
+    console.log(`    Adjectives: ${adjectives.length}`);
+
 }
 
 function testYourself() {
