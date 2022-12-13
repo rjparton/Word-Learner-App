@@ -1,17 +1,12 @@
+const fetchPromise = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json');
 
-// const array = [
-//     {
-//         word: 'hello'
-//     },
-//     {
-//         word: 'yo'
-//     }
-// ]
-
-const array = [1,2,3,4,5,6,7,8,9,10];
-
-let word = 'no';
-
-console.log(array.slice(array.length - 5));
-console.log(array);
-
+fetchPromise
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data[0].name);
+  });

@@ -1,5 +1,7 @@
-# wordlearner
+# Word Learner App
 
-This is an application to help you record words you discover and learn them.
+Record words you discover and master them using the Word Learner Application.
 
-Currently a terminal based program. Future goal is to build a mobile front end using React Native.
+Track your progress to towards mastery.
+
+Currently a terminal based program with a mobile UI in development.
